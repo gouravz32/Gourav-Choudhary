@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Gourav Choudhary - Professional Web Developer, PC Builder & SEO Expert | Rajasthan</title>
+    <meta name="description" content="Professional web developer, PC building expert & SEO specialist from New Gharsana, Rajasthan. Custom website development, SEO optimization, and high-performance PC building services.">
+    <meta name="keywords" content="web developer rajasthan, pc builder india, seo expert, custom website development, responsive web design, digital marketing, gourav choudhary">
+    <meta name="author" content="Gourav Choudhary">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gouravchoudhary.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gourav Choudhary - Professional Web Developer & PC Builder">
+    <meta property="og:description" content="Expert web development, SEO optimization, and PC building services from Rajasthan, India.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gouravchoudhary.com">
+    <meta property="og:image" content="img/gourav choudhary.jpeg">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gourav Choudhary - Web Developer & PC Builder">
+    <meta name="twitter:description" content="Professional web development and PC building services from Rajasthan.">
+    <meta name="twitter:image" content="img/gourav choudhary.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gourav Choudhary",
+        "jobTitle": "Web Developer & PC Building Expert",
+        "url": "https://gouravchoudhary.com",
+        "image": "img/gourav choudhary.jpeg",
+        "description": "Professional web developer, PC building expert, and SEO specialist from New Gharsana, Rajasthan.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3str, Bikaner Road",
+            "addressLocality": "New Gharsana",
+            "addressRegion": "Rajasthan",
+            "addressCountry": "India"
+        },
+        "telephone": "+91-8955622948",
+        "email": "gouravchoudharyoffical@gmail.com",
+        "sameAs": [
+            "https://instagram.com/itz_gourav_choudhary65"
+        ],
+        "knowsAbout": ["Web Development", "SEO", "PC Building", "Digital Marketing", "React.js", "Next.js"]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e6ed;
+            background: #0a0f1c;
+            overflow-x: hidden;
+        }
+
+        /* Modern Dark Theme with Blue Accents */
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #0066ff;
+            --accent-color: #ff6b35;
+            --background-dark: #0a0f1c;
+            --background-card: #1a1f2e;
+            --background-light: #252a3d;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c2cc;
+            --border-color: #2d3748;
+            --gradient-primary: linear-gradient(135deg, #00d4ff, #0066ff);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35, #f093fb);
+            --shadow-light: 0 4px 20px rgba(0, 212, 255, 0.1);
+            --shadow-medium: 0 8px 40px rgba(0, 212, 255, 0.2);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animated Background Particles */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--background-dark);
+        }
+
+        .bg-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s ease-in-out infinite;
+        }
+
+        @keyframes grid-move {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(25px, 25px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Fixed Mobile Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 31, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(26, 31, 46, 0.98);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: 1001;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover::before {
+            width: 80%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section - Mobile Responsive */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: var(--shadow-heavy);
+            animation: float-hero 6s ease-in-out infinite;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        @keyframes float-hero {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .typing-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary-color); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .hero .description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--background-card);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Cards - Mobile Responsive */
+        .card {
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            box-shadow: var(--shadow-heavy);
+            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Enhanced SEO Knowledge Section */
+        .seo-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .seo-intro p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .seo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .seo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .seo-feature {
+            background: var(--background-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .seo-feature:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .seo-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .seo-feature h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .seo-feature p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .seo-tools {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .seo-tools li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .seo-tools li::before {
+            content: '•';
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* Enhanced Custom Website Orders Section */
+        .order-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .order-intro p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 212, 255, 0.15);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .technologies-section {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--background-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .tech-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .tech-item h4 {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Development Process */
+        .process-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-intro p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .order-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: var(--background-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .process-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .process-step h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .process-timeline {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .delivery-time {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Personal Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background-card);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            padding: 0.8rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+
+        /* Mobile Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(26, 31, 46, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 280px;
+                font-size: 4rem;
+            }
+
+            .seo-features,
+            .order-process,
+            .pricing-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .features-highlight {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seo-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .hero .description {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .card, .seo-feature, .process-step, .pricing-card, .contact-item {
+                padding: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .features-highlight,
+            .seo-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Performance Optimizations */
+        img {
+            loading: lazy;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .btn:focus,
+        .nav-menu a:focus,
+        .contact-item a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-container">
+        <div class="bg-grid"></div>
+        <div class="bg-particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Gourav Choudhary</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#seo">SEO</a></li>
+                <li><a href="#custom-websites">Custom Websites</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="img/gourav choudhary.jpeg" alt="Gourav Choudhary - Professional Web Developer and PC Builder">
+                </div>
+                <h1><span class="typing-text" id="typingText"></span></h1>
+                <p class="subtitle">🚀 PC Builder • Web Developer • SEO Expert</p>
+                <p class="description">
+                    Professional technology specialist from New Gharsana, Rajasthan. Expert in custom PC building, 
+                    modern web development, and comprehensive SEO strategies. I create high-performance systems 
+                    and digital solutions that drive results and boost your online presence.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#custom-websites" class="btn btn-primary" aria-label="Order Custom Website">
+                        <i class="fas fa-globe"></i> Order Custom Website
+                    </a>
+                    <a href="#contact" class="btn btn-outline" aria-label="Get In Touch">
+                        <i class="fas fa-phone"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="about-image slide-in-left">
+                    <img src="img/2nd image.jpeg" alt="Gourav Choudhary at work - Technology professional">
+                </div>
+                <div class="about-text slide-in-right">
+                    <h3>Passionate Technology Enthusiast</h3>
+                    <p>
+                        I'm <span class="highlight">Gourav Choudhary</span>, a dedicated technology professional from 
+                        <span class="highlight">New Gharsana, Rajasthan</span>. My journey in technology began with 
+                        a fascination for computer hardware, which evolved into comprehensive expertise in PC building, 
+                        web development, and digital marketing.
+                    </p>
+                    <p>
+                        Currently pursuing my <span class="highlight">Bachelor of Arts degree</span> at S.K. College, 
+                        I balance academic excellence with hands-on technical projects. My expertise spans from 
+                        assembling high-performance gaming systems to developing modern web applications using 
+                        cutting-edge technologies like <span class="highlight">React.js, Next.js, and Node.js</span>.
+                    </p>
+                    <p>
+                        What sets me apart is my unique combination of <span class="highlight">technical skills</span> 
+                        and <span class="highlight">creative problem-solving</span>. Whether I'm building a custom 
+                        gaming rig, developing a responsive website, or implementing comprehensive SEO strategies, 
+                        I approach every project with precision, innovation, and a commitment to delivering exceptional results.
+                    </p>
+                    <p>
+                        I believe in continuous learning and staying updated with the latest technological trends. 
+                        My goal is to help individuals and businesses leverage technology to achieve their objectives, 
+                        enhance their digital presence, and create lasting impact in the digital world.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="personal-info">
+                <div class="info-card fade-in">
+                    <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Education</h4>
+                    <p>Bachelor of Arts (1st Year)<br>S.K. College</p>
+                </div>
+                <div class="info-card fade-in">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Location</h4>
+                    <p>New Gharsana<br>Rajasthan, India</p>
+                </div>
+                <div class="info-card fade-in">
+                    <div class="info-icon"><i class="fas fa-language"></i></div>
+                    <h4>Languages</h4>
+                    <p>Hindi (Native), English (Fluent)<br>Punjabi (Conversational)</p>
+                </div>
+                <div class="info-card fade-in">
+                    <div class="info-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Interests</h4>
+                    <p>Gaming, Technology<br>Video Editing, Innovation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced SEO Knowledge Section -->
+    <section id="seo" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">SEO Expertise & Services</h2>
+            
+            <div class="seo-intro fade-in">
+                <p>
+                    Transform your online visibility with professional SEO strategies that drive organic traffic, 
+                    improve search rankings, and boost your business growth. I provide comprehensive SEO solutions 
+                    tailored to your specific industry and target audience, ensuring measurable results and long-term success.
+                </p>
+                
+                <div class="seo-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Keywords Ranked</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3x</span>
+                        <span class="stat-label">Average Traffic Increase</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-features">
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-search"></i></div>
+                    <h3>Advanced Keyword Research & Strategy</h3>
+                    <p>Comprehensive keyword analysis using professional tools to identify high-value search terms, analyze competition, and develop strategic content plans that drive organic traffic and improve search rankings for maximum ROI.</p>
+                    <ul class="seo-tools">
+                        <li>SEMrush & Ahrefs Analysis</li>
+                        <li>Google Keyword Planner</li>
+                        <li>Competitor Keyword Gap Analysis</li>
+                        <li>Long-tail Keyword Optimization</li>
+                        <li>Search Intent Mapping</li>
+                    </ul>
+                </div>
+
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Technical SEO Optimization</h3>
+                    <p>Complete technical audit and optimization including site speed enhancement, mobile responsiveness, structured data implementation, XML sitemaps, and Core Web Vitals optimization for superior search performance.</p>
+                    <ul class="seo-tools">
+                        <li>Core Web Vitals Optimization</li>
+                        <li>Schema Markup Implementation</li>
+                        <li>Site Speed Optimization</li>
+                        <li>Mobile-First Indexing</li>
+                        <li>Technical Error Fixing</li>
+                    </ul>
+                </div>
+
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-edit"></i></div>
+                    <h3>Content Optimization & Strategy</h3>
+                    <p>Strategic content creation and optimization focused on user intent, semantic SEO, content structure, and engaging copywriting that ranks well, drives traffic, and converts visitors into loyal customers.</p>
+                    <ul class="seo-tools">
+                        <li>Content Gap Analysis</li>
+                        <li>On-Page SEO Optimization</li>
+                        <li>Meta Tags Optimization</li>
+                        <li>Internal Linking Strategy</li>
+                        <li>Content Performance Tracking</li>
+                    </ul>
+                </div>
+
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-link"></i></div>
+                    <h3>Link Building & Authority Development</h3>
+                    <p>Ethical white-hat link building strategies to improve domain authority through quality backlink acquisition, guest posting, digital PR, and relationship building with industry influencers and authoritative websites.</p>
+                    <ul class="seo-tools">
+                        <li>High-Quality Backlink Acquisition</li>
+                        <li>Guest Posting Campaigns</li>
+                        <li>Broken Link Building</li>
+                        <li>Resource Page Link Building</li>
+                        <li>Competitor Backlink Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Analytics & Performance Tracking</h3>
+                    <p>Comprehensive SEO analytics setup, performance monitoring, detailed reporting, and data-driven insights to measure success, track ROI, and continuously improve search performance and business growth.</p>
+                    <ul class="seo-tools">
+                        <li>Google Analytics 4 Setup</li>
+                        <li>Search Console Optimization</li>
+                        <li>Rank Tracking & Monitoring</li>
+                        <li>Conversion Rate Optimization</li>
+                        <li>Monthly Performance Reports</li>
+                    </ul>
+                </div>
+
+                <div class="seo-feature fade-in">
+                    <div class="seo-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Local SEO & GMB Optimization</h3>
+                    <p>Local business optimization including Google My Business management, local citation building, review management, and location-based search optimization for improved local visibility and foot traffic.</p>
+                    <ul class="seo-tools">
+                        <li>Google My Business Optimization</li>
+                        <li>Local Citation Building</li>
+                        <li>Review Management Strategy</li>
+                        <li>Local Keyword Optimization</li>
+                        <li>Map Pack Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Custom Website Development Section -->
+    <section id="custom-websites" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Custom Website Development Services</h2>
+            
+            <div class="order-intro fade-in">
+                <p>
+                    Transform your digital presence with professional, custom-built websites tailored to your specific business needs. 
+                    From simple landing pages to complex e-commerce platforms, I deliver modern, responsive, SEO-optimized, and 
+                    conversion-focused solutions that drive results, enhance user experience, and boost your online success.
+                </p>
+                
+                <div class="features-highlight">
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Mobile Responsive</h4>
+                        <p>Perfect on all devices</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-search"></i>
+                        <h4>SEO Optimized</h4>
+                        <p>Built for search engines</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Lightning Fast</h4>
+                        <p>Optimized performance</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure & Safe</h4>
+                        <p>SSL & security features</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-palette"></i>
+                        <h4>Custom Design</h4>
+                        <p>Unique to your brand</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <h4>24/7 Support</h4>
+                        <p>Always here to help</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies Section -->
+            <div class="technologies-section fade-in">
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 2rem;">Technologies I Use</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Modern, cutting-edge technologies for superior performance</p>
+                
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-react"></i>
+                        <h4>React.js</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js-square"></i>
+                        <h4>Next.js</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-node-js"></i>
+                        <h4>Node.js</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <h4>HTML5</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <h4>CSS3</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-wordpress"></i>
+                        <h4>WordPress</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <h4>MongoDB</h4>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <h4>Python</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced Development Process -->
+            <div class="process-intro fade-in">
+                <h3 style="text-align: center; color: var(--text-primary); margin-bottom: 1rem; font-size: 2rem;">Development Process</h3>
+                <p>Our proven methodology ensures quality delivery, clear communication, and exceptional results from concept to launch.</p>
+            </div>
+
+            <div class="order-process">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Consultation & Planning</h3>
+                    <p>Detailed discussion of your requirements, business goals, target audience, and project scope. We create a comprehensive project plan with timeline, features, technical specifications, and design strategy.</p>
+                    <div class="process-timeline">1-2 Days</div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="process-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Design & Wireframing</h3>
+                    <p>Create custom wireframes, mockups, and interactive prototypes. Focus on user experience, visual appeal, brand consistency, and conversion optimization with multiple revision rounds for perfection.</p>
+                    <div class="process-timeline">3-5 Days</div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <h3>Development & Testing</h3>
+                    <p>Build your website using modern technologies with clean, optimized, and scalable code. Comprehensive testing across devices, browsers, performance optimization, and quality assurance.</p>
+                    <div class="process-timeline">7-14 Days</div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Launch & Ongoing Support</h3>
+                    <p>Deploy your website with complete SEO setup, analytics integration, security implementation, and comprehensive documentation. Ongoing maintenance, updates, and technical support included.</p>
+                    <div class="process-timeline">1-2 Days</div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: var(--text-primary); margin: 4rem 0 2rem; font-size: 2rem;">Website Packages & Pricing</h3>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Starter Website</h3>
+                    <div class="delivery-time">7-10 Days Delivery</div>
+                    <div class="price">₹15,000</div>
+                    <ul class="pricing-features">
+                        <li>5 Professional Pages (Home, About, Services, Portfolio, Contact)</li>
+                        <li>Fully Responsive Design for All Devices</li>
+                        <li>Basic SEO Setup & Meta Tags Optimization</li>
+                        <li>Contact Form with Email Integration</li>
+                        <li>Social Media Integration & Links</li>
+                        <li>Google Maps Integration</li>
+                        <li>Basic Performance Optimization</li>
+                        <li>1 Month Free Support & Maintenance</li>
+                        <li>Free SSL Certificate Setup</li>
+                        <li>Mobile-First Design Approach</li>
+                        <li>Image Optimization & Compression</li>
+                        <li>Basic Analytics Setup</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Order Starter Package</a>
+                </div>
+                
+                <div class="pricing-card featured fade-in">
+                    <h3>Professional Website</h3>
+                    <div class="delivery-time">14-18 Days Delivery</div>
+                    <div class="price">₹30,000</div>
+                    <ul class="pricing-features">
+                        <li>10+ Pages + Advanced Blog System</li>
+                        <li>Custom Advanced Design & Animations</li>
+                        <li>Complete SEO Optimization & Schema Markup</li>
+                        <li>Content Management System (CMS)</li>
+                        <li>Google Analytics & Search Console Setup</li>
+                        <li>Advanced Performance Optimization</li>
+                        <li>Newsletter Integration & Email Marketing</li>
+                        <li>Advanced Contact Forms & Lead Generation</li>
+                        <li>Social Media Auto-posting Integration</li>
+                        <li>3 Months Free Support & Updates</li>
+                        <li>Free Professional Logo Design</li>
+                        <li>Automated Backup & Security Setup</li>
+                        <li>Multi-language Support Ready</li>
+                        <li>Advanced Analytics & Tracking</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Order Professional Package</a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <h3>E-Commerce Store</h3>
+                    <div class="delivery-time">21-25 Days Delivery</div>
+                    <div class="price">₹50,000</div>
+                    <ul class="pricing-features">
+                        <li>Full E-commerce Functionality & Features</li>
+                        <li>Payment Gateway Integration (Razorpay, PayPal, Stripe)</li>
+                        <li>Advanced Product Management System</li>
+                        <li>Inventory Management & Order Tracking</li>
+                        <li>Customer Account Dashboard & Profiles</li>
+                        <li>Shopping Cart, Wishlist & Checkout</li>
+                        <li>Advanced SEO for E-commerce Success</li>
+                        <li>Progressive Web App (PWA) Features</li>
+                        <li>Enhanced Security & PCI Compliance</li>
+                        <li>Comprehensive Sales Analytics & Reporting</li>
+                        <li>Email Marketing & Automation Integration</li>
+                        <li>6 Months Free Support & Maintenance</li>
+                        <li>Multi-currency & Tax Management</li>
+                        <li>Advanced Search & Filter Options</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Order E-Commerce Package</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;" class="fade-in">
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Need Something Custom?</h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Every business is unique. Contact me for a personalized quote tailored to your specific requirements, 
+                    goals, and budget. I'll create a solution that perfectly fits your vision.
+                </p>
+                <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
+                    <i class="fas fa-phone"></i> Discuss Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Personal Gallery</h2>
+            <div style="text-align: center; margin-bottom: 3rem;" class="fade-in">
+                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    A collection of my workspace, projects, and memorable moments. Each image tells a story of my journey in technology, 
+                    personal growth, and professional achievements in the world of web development and PC building.
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="img/3.jpeg" alt="Gourav Choudhary - Personal moment and achievements">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="img/4.jpeg" alt="Gourav Choudhary - Professional workspace and projects">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="img/gourav choudhary.jpeg" alt="Gourav Choudhary - Technology expert and professional">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--text-secondary); font-style: italic; font-size: 1rem;">
+                    These images represent my journey, passion for technology, and commitment to excellence in every project I undertake.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div style="text-align: center; margin-bottom: 3rem;" class="fade-in">
+                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Ready to start your project? Let's discuss your requirements and create something amazing together. 
+                    I'm here to help bring your digital vision to life.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+918955622948" aria-label="Call Gourav Choudhary">+91 8955622948</a></p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Available 9 AM - 9 PM</p>
+                </div>
+                
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:gouravchoudharyoffical@gmail.com" aria-label="Email Gourav Choudhary">gouravchoudharyoffical@gmail.com</a></p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Response within 24 hours</p>
+                </div>
+                
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Location</h3>
+                    <p>3str, Bikaner Road<br>New Gharsana, Rajasthan, India</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Serving clients worldwide</p>
+                </div>
+                
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <p><a href="https://instagram.com/itz_gourav_choudhary65" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">@itz_gourav_choudhary65</a></p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Follow for updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/itz_gourav_choudhary65" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:gouravchoudharyoffical@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+918955622948" aria-label="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p style="color: var(--text-secondary);">&copy; 2025 Gourav Choudhary. All rights reserved.</p>
+            <p style="color: var(--text-secondary); opacity: 0.7; margin-top: 1rem;">Professional Web Developer, SEO Expert & PC Building Specialist from Rajasthan, India</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Create particles with performance optimization
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 15 : 30; // Fewer particles on mobile
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = particle.style.height = Math.random() * 8 + 3 + 'px';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Enhanced typing effect
+        const texts = ['Gourav Choudhary', 'PC Builder Expert', 'Web Developer', 'SEO Specialist', 'Digital Solutions Provider'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const typingElement = document.getElementById('typingText');
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Enhanced mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scrolling when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Enhanced smooth scrolling with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const headerOffset = 80; // Height of fixed navbar
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll animations with performance optimization
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve the element to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced navbar scroll effect
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+
+        // Debounced resize handler for performance
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                // Recreate particles on resize for better mobile experience
+                document.getElementById('particles').innerHTML = '';
+                createParticles();
+            }, 250);
+        });
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            typeWriter();
+            
+            // Add loading class to body initially
+            document.body.classList.add('loading');
+            
+            // Remove loading class after everything is loaded
+            window.addEventListener('load', function() {
+                document.body.classList.remove('loading');
+            });
+        });
+
+        // Service Worker for better performance (if needed)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Uncomment below lines if you have a service worker
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+</body>
+</html>

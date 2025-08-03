@@ -981,6 +981,137 @@
             color: white;
         }
 
+        /* Blog Post Sections */
+        .blog-post-section {
+            padding: 80px 0;
+            background: var(--background-secondary);
+            min-height: 100vh;
+        }
+
+        .blog-post-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .back-to-services {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .back-to-services:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-post-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--background-card);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .blog-post-content h2 {
+            color: var(--primary-color);
+            margin: 2.5rem 0 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+        }
+
+        .blog-post-content h3 {
+            color: var(--text-primary);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .blog-post-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-content ul,
+        .blog-post-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .blog-post-content li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-post-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .blog-conclusion {
+            background: var(--background-accent);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            margin-top: 3rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .blog-conclusion a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .blog-conclusion a:hover {
+            color: var(--secondary-color);
+        }
+
         .service-card h3 {
             color: var(--text-primary);
             margin-bottom: 1rem;
@@ -1928,6 +2059,20 @@
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
+
+            .blog-post-title {
+                font-size: 2rem;
+            }
+
+            .blog-post-content {
+                padding: 2rem;
+            }
+
+            .blog-post-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
         }
 
         /* Performance Optimizations */
@@ -1996,7 +2141,6 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -2100,7 +2244,7 @@
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Web Development</h3>
                     <p>Custom websites built with modern technologies like React.js, Next.js, and Node.js. Responsive, fast, and SEO-optimized.</p>
-                    <button class="service-link" onclick="openServiceModal('web-development')">
+                    <button class="service-link" onclick="showServiceBlog('web-development-blog')">
                         <i class="fas fa-arrow-right"></i> Learn More
                     </button>
                 </div>
@@ -2108,7 +2252,7 @@
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>SEO Optimization</h3>
                     <p>Boost your online visibility with comprehensive SEO strategies, keyword research, and performance analytics.</p>
-                    <button class="service-link" onclick="openServiceModal('seo-optimization')">
+                    <button class="service-link" onclick="showServiceBlog('seo-optimization-blog')">
                         <i class="fas fa-arrow-right"></i> Learn More
                     </button>
                 </div>
@@ -2116,10 +2260,274 @@
                     <div class="service-icon"><i class="fas fa-desktop"></i></div>
                     <h3>PC Building</h3>
                     <p>Custom high-performance PC builds for gaming, workstations, and business needs. Quality components, expert assembly.</p>
-                    <button class="service-link" onclick="openServiceModal('pc-building')">
+                    <button class="service-link" onclick="showServiceBlog('pc-building-blog')">
                         <i class="fas fa-arrow-right"></i> Learn More
                     </button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts for Services (Hidden by default) -->
+    
+    <!-- Web Development Blog Post -->
+    <section id="web-development-blog" class="blog-post-section" style="display: none;">
+        <div class="container">
+            <div class="blog-post-header">
+                <button class="back-to-services" onclick="hideServiceBlog()">
+                    <i class="fas fa-arrow-left"></i> Back to Services
+                </button>
+                <h1 class="blog-post-title">Complete Guide to Modern Web Development with React.js and Next.js in 2025</h1>
+                <div class="blog-post-meta">
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                    <span><i class="fas fa-calendar"></i> January 15, 2025</span>
+                    <span><i class="fas fa-clock"></i> 8 min read</span>
+                    <span><i class="fas fa-tag"></i> Web Development</span>
+                </div>
+            </div>
+
+            <div class="blog-post-content">
+                <p>Modern web development has evolved dramatically, and staying current with the latest technologies and best practices is crucial for creating exceptional digital experiences. In this comprehensive guide, I'll walk you through the essential concepts and advanced techniques for building modern web applications using React.js and Next.js.</p>
+
+                <h2>Why React.js and Next.js in 2025?</h2>
+                <p>React.js continues to dominate the frontend landscape, while Next.js has emerged as the go-to framework for production-ready React applications. Here's why this combination is perfect for modern web development:</p>
+
+                <ul>
+                    <li><strong>Component-Based Architecture:</strong> Build reusable, maintainable components</li>
+                    <li><strong>Server-Side Rendering (SSR):</strong> Improved SEO and performance</li>
+                    <li><strong>Static Site Generation (SSG):</strong> Lightning-fast loading times</li>
+                    <li><strong>API Routes:</strong> Full-stack development in one framework</li>
+                    <li><strong>Built-in Optimization:</strong> Image optimization, code splitting, and more</li>
+                </ul>
+
+                <h2>Essential Modern Web Development Practices</h2>
+                
+                <h3>1. Component-Driven Development</h3>
+                <p>Building reusable, modular components is the foundation of modern React development. Focus on creating components that are:</p>
+                <ul>
+                    <li>Single-purpose and focused</li>
+                    <li>Reusable across different parts of your application</li>
+                    <li>Well-documented and tested</li>
+                    <li>Properly typed with TypeScript</li>
+                </ul>
+
+                <h3>2. Performance Optimization Techniques</h3>
+                <p>Key performance optimization strategies include:</p>
+                <ul>
+                    <li>Code splitting and lazy loading</li>
+                    <li>Image optimization with Next.js Image component</li>
+                    <li>Implementing proper caching strategies</li>
+                    <li>Minimizing bundle sizes</li>
+                    <li>Using React.memo and useMemo wisely</li>
+                </ul>
+
+                <h2>SEO and Web Development Integration</h2>
+                <p>As a web developer and SEO expert, I emphasize the importance of building SEO-friendly applications from the ground up:</p>
+
+                <ul>
+                    <li><strong>Semantic HTML:</strong> Use proper HTML5 semantic elements</li>
+                    <li><strong>Meta Tags:</strong> Implement dynamic meta tags with Next.js Head component</li>
+                    <li><strong>Core Web Vitals:</strong> Optimize for LCP, FID, and CLS metrics</li>
+                    <li><strong>Structured Data:</strong> Implement JSON-LD schema markup</li>
+                    <li><strong>Accessibility:</strong> Ensure WCAG compliance for better user experience and SEO</li>
+                </ul>
+
+                <h2>Tools and Technologies for Modern Development</h2>
+                <p>Essential tools for modern React/Next.js development:</p>
+
+                <ul>
+                    <li><strong>TypeScript:</strong> For type safety and better developer experience</li>
+                    <li><strong>Tailwind CSS:</strong> For utility-first CSS styling</li>
+                    <li><strong>ESLint & Prettier:</strong> For code quality and consistency</li>
+                    <li><strong>Testing:</strong> Jest, React Testing Library, and Playwright</li>
+                    <li><strong>Development Tools:</strong> VS Code extensions, Chrome DevTools</li>
+                </ul>
+
+                <p class="blog-conclusion">Ready to start your next web development project? As a professional web developer from Rajasthan, I specialize in creating modern, high-performance websites using these exact technologies. <a href="#contact" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Contact me</a> to discuss your project requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Optimization Blog Post -->
+    <section id="seo-optimization-blog" class="blog-post-section" style="display: none;">
+        <div class="container">
+            <div class="blog-post-header">
+                <button class="back-to-services" onclick="hideServiceBlog()">
+                    <i class="fas fa-arrow-left"></i> Back to Services
+                </button>
+                <h1 class="blog-post-title">Advanced SEO Strategies That Actually Work: A Complete 2025 Guide</h1>
+                <div class="blog-post-meta">
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                    <span><i class="fas fa-calendar"></i> January 12, 2025</span>
+                    <span><i class="fas fa-clock"></i> 10 min read</span>
+                    <span><i class="fas fa-tag"></i> SEO Optimization</span>
+                </div>
+            </div>
+
+            <div class="blog-post-content">
+                <p>Search Engine Optimization has evolved significantly, and what worked in 2020 may not be effective today. In this comprehensive guide, I'll share the advanced SEO strategies that are delivering real results in 2025, based on my experience helping businesses achieve #1 rankings on Google.</p>
+
+                <h2>The Current SEO Landscape in 2025</h2>
+                <p>Google's algorithm has become increasingly sophisticated, focusing on user experience, content quality, and technical performance. The key ranking factors for 2025 include:</p>
+
+                <ul>
+                    <li><strong>Core Web Vitals:</strong> Page speed, interactivity, and visual stability</li>
+                    <li><strong>E-E-A-T:</strong> Experience, Expertise, Authoritativeness, and Trustworthiness</li>
+                    <li><strong>User Experience Signals:</strong> Bounce rate, dwell time, and click-through rates</li>
+                    <li><strong>Content Quality:</strong> Comprehensive, original, and valuable content</li>
+                    <li><strong>Mobile-First Indexing:</strong> Mobile optimization is no longer optional</li>
+                </ul>
+
+                <h2>Technical SEO: The Foundation of Success</h2>
+                
+                <h3>Core Web Vitals Optimization</h3>
+                <p>Core Web Vitals are crucial ranking factors. Here's how to optimize each metric:</p>
+
+                <ul>
+                    <li><strong>Largest Contentful Paint (LCP):</strong> Target under 2.5 seconds</li>
+                    <li><strong>First Input Delay (FID):</strong> Target under 100ms</li>
+                    <li><strong>Cumulative Layout Shift (CLS):</strong> Target under 0.1</li>
+                </ul>
+
+                <h2>Content Strategy and Keyword Research</h2>
+                
+                <h3>Advanced Keyword Research Techniques</h3>
+                <p>Modern keyword research goes beyond search volume. Focus on:</p>
+
+                <ul>
+                    <li><strong>Search Intent Analysis:</strong> Understand what users really want</li>
+                    <li><strong>Long-tail Keywords:</strong> Target specific, high-converting phrases</li>
+                    <li><strong>Semantic Keywords:</strong> Use related terms and synonyms</li>
+                    <li><strong>Competitor Gap Analysis:</strong> Find opportunities your competitors miss</li>
+                    <li><strong>Voice Search Optimization:</strong> Target conversational queries</li>
+                </ul>
+
+                <h2>Local SEO for Indian Businesses</h2>
+                
+                <h3>Google My Business Optimization</h3>
+                <p>For businesses in Rajasthan and across India, local SEO is crucial:</p>
+
+                <ul>
+                    <li><strong>Complete Business Information:</strong> Accurate NAP (Name, Address, Phone)</li>
+                    <li><strong>Regular Posts:</strong> Share updates, offers, and events</li>
+                    <li><strong>Customer Reviews:</strong> Encourage and respond to reviews</li>
+                    <li><strong>Local Keywords:</strong> Include city and region-specific terms</li>
+                    <li><strong>Local Citations:</strong> Consistent listings across directories</li>
+                </ul>
+
+                <h2>Measuring SEO Success</h2>
+                <p>Track these essential SEO metrics:</p>
+
+                <ul>
+                    <li><strong>Organic Traffic Growth:</strong> Quality visitors from search engines</li>
+                    <li><strong>Keyword Rankings:</strong> Position improvements for target keywords</li>
+                    <li><strong>Click-Through Rates:</strong> SERP performance optimization</li>
+                    <li><strong>Conversion Rates:</strong> Traffic that leads to business goals</li>
+                    <li><strong>Core Web Vitals:</strong> Technical performance metrics</li>
+                </ul>
+
+                <p class="blog-conclusion">Remember, SEO is a long-term investment that requires patience, consistency, and continuous optimization. Ready to implement these strategies for your business? <a href="#contact" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Contact me</a> for professional SEO consultation and implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PC Building Blog Post -->
+    <section id="pc-building-blog" class="blog-post-section" style="display: none;">
+        <div class="container">
+            <div class="blog-post-header">
+                <button class="back-to-services" onclick="hideServiceBlog()">
+                    <i class="fas fa-arrow-left"></i> Back to Services
+                </button>
+                <h1 class="blog-post-title">Ultimate PC Building Guide 2025: From Budget Gaming to High-End Workstations</h1>
+                <div class="blog-post-meta">
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                    <span><i class="fas fa-calendar"></i> January 10, 2025</span>
+                    <span><i class="fas fa-clock"></i> 12 min read</span>
+                    <span><i class="fas fa-tag"></i> PC Building</span>
+                </div>
+            </div>
+
+            <div class="blog-post-content">
+                <p>Building a custom PC has never been more rewarding, with 2025 offering incredible performance gains and value across all price segments. Whether you're a gamer, content creator, or professional, this comprehensive guide will help you build the perfect system tailored to your needs and budget.</p>
+
+                <h2>Why Build Your Own PC in 2025?</h2>
+                <p>Custom PC building offers numerous advantages over pre-built systems:</p>
+
+                <ul>
+                    <li><strong>Cost Efficiency:</strong> Save 20-40% compared to equivalent pre-built systems</li>
+                    <li><strong>Customization:</strong> Choose exactly the components you need</li>
+                    <li><strong>Quality Control:</strong> Select high-quality components from trusted brands</li>
+                    <li><strong>Upgradeability:</strong> Easy to upgrade individual components</li>
+                    <li><strong>Learning Experience:</strong> Understand your system inside and out</li>
+                    <li><strong>Warranty:</strong> Individual component warranties often exceed pre-built warranties</li>
+                </ul>
+
+                <h2>Essential Components Overview</h2>
+                
+                <h3>1. CPU (Central Processing Unit)</h3>
+                <p>The brain of your computer determines overall system performance:</p>
+
+                <ul>
+                    <li><strong>Budget Gaming (₹15,000-25,000):</strong> AMD Ryzen 5 5600 or Intel Core i5-12400F</li>
+                    <li><strong>Mid-Range Gaming (₹25,000-40,000):</strong> AMD Ryzen 7 5800X3D or Intel Core i7-12700K</li>
+                    <li><strong>High-End Gaming/Workstation (₹40,000+):</strong> AMD Ryzen 9 7900X or Intel Core i9-13900K</li>
+                </ul>
+
+                <h3>2. GPU (Graphics Processing Unit)</h3>
+                <p>Critical for gaming, content creation, and AI workloads:</p>
+
+                <ul>
+                    <li><strong>1080p Gaming:</strong> RTX 4060, RTX 3060 Ti, or RX 6700 XT</li>
+                    <li><strong>1440p Gaming:</strong> RTX 4070, RTX 3070 Ti, or RX 6800 XT</li>
+                    <li><strong>4K Gaming/Professional:</strong> RTX 4080, RTX 4090, or RX 7900 XTX</li>
+                </ul>
+
+                <h2>Build Categories and Recommendations</h2>
+                
+                <h3>Budget Gaming Build (₹60,000-80,000)</h3>
+                <p><strong>Recommended Components:</strong></p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Ryzen 5 5600 (₹15,000)</li>
+                    <li><strong>GPU:</strong> RTX 4060 or RX 6700 XT (₹25,000)</li>
+                    <li><strong>Motherboard:</strong> B450/B550 ATX (₹8,000)</li>
+                    <li><strong>RAM:</strong> 16GB DDR4-3200 (₹5,000)</li>
+                    <li><strong>Storage:</strong> 1TB NVMe SSD (₹6,000)</li>
+                    <li><strong>PSU:</strong> 650W 80+ Bronze (₹5,000)</li>
+                    <li><strong>Case:</strong> Mid-tower with good airflow (₹4,000)</li>
+                </ul>
+
+                <h3>High-End Workstation Build (₹2,00,000+)</h3>
+                <p><strong>Recommended Components:</strong></p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Ryzen 9 7900X or Intel i9-13900K (₹50,000)</li>
+                    <li><strong>GPU:</strong> RTX 4080/4090 or professional GPU (₹80,000+)</li>
+                    <li><strong>Motherboard:</strong> X670E/Z790 with premium features (₹25,000)</li>
+                    <li><strong>RAM:</strong> 64GB DDR5-6000 or higher (₹30,000)</li>
+                    <li><strong>Storage:</strong> 2TB Gen4 NVMe + additional storage (₹20,000)</li>
+                </ul>
+
+                <h2>Step-by-Step Assembly Guide</h2>
+                <ol>
+                    <li><strong>Prepare the Case:</strong> Remove panels, install I/O shield</li>
+                    <li><strong>Install PSU:</strong> Mount power supply with fan facing down</li>
+                    <li><strong>Prepare Motherboard:</strong> Install CPU, RAM, and M.2 SSD outside case</li>
+                    <li><strong>Install CPU Cooler:</strong> Apply thermal paste and mount cooler</li>
+                    <li><strong>Mount Motherboard:</strong> Install standoffs and secure motherboard</li>
+                    <li><strong>Install GPU:</strong> Secure graphics card in PCIe slot</li>
+                    <li><strong>Connect Cables:</strong> Power, data, and front panel connections</li>
+                    <li><strong>Final Check:</strong> Verify all connections before powering on</li>
+                </ol>
+
+                <h2>Performance Optimization and Tweaking</h2>
+                <p>Essential optimization tips:</p>
+                <ul>
+                    <li><strong>Enable XMP/DOCP:</strong> Activate memory overclocking profiles</li>
+                    <li><strong>Update Drivers:</strong> Latest GPU, chipset, and peripheral drivers</li>
+                    <li><strong>Monitor Temperatures:</strong> Ensure proper cooling</li>
+                    <li><strong>Cable Management:</strong> Improves airflow and aesthetics</li>
+                </ul>
+
+                <p class="blog-conclusion">Building a PC is one of the most rewarding experiences in technology. Take your time, enjoy the process, and don't hesitate to seek help when needed. As a professional PC builder from Rajasthan, I've helped countless clients build their dream systems. <a href="#contact" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Contact me</a> if you need assistance with component selection, assembly, or optimization.</p>
             </div>
         </div>
     </section>
@@ -2493,7 +2901,6 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -2638,54 +3045,92 @@
             }
         };
 
-        // Service modal functions
-        function openServiceModal(serviceType) {
-            const modal = document.getElementById('service-modal');
-            const data = serviceData[serviceType];
-            const blogs = blogData[serviceType];
+        // Service blog functions
+        function showServiceBlog(blogId) {
+            // Hide all sections first
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('services').style.display = 'none';
+            document.getElementById('portfolio').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('gallery').style.display = 'none';
+            document.querySelector('.contact-cta-section').style.display = 'none';
             
-            if (data) {
-                document.getElementById('modal-title').textContent = data.title;
-                document.getElementById('modal-description').textContent = data.description;
+            // Hide all blog sections
+            const blogSections = document.querySelectorAll('.blog-post-section');
+            blogSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the specific blog section
+            const targetBlog = document.getElementById(blogId);
+            if (targetBlog) {
+                targetBlog.style.display = 'block';
                 
-                const featuresList = document.getElementById('modal-features');
-                featuresList.innerHTML = '';
-                
-                data.features.forEach(feature => {
-                    const li = document.createElement('li');
-                    li.textContent = feature;
-                    featuresList.appendChild(li);
+                // Scroll to top smoothly
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
                 
-                // Add blog links
-                const blogContainer = document.getElementById('modal-blogs');
-                blogContainer.innerHTML = '';
-                
-                blogs.forEach(blog => {
-                    const blogLink = document.createElement('a');
-                    blogLink.href = blog.url;
-                    blogLink.className = 'blog-link';
-                    blogLink.innerHTML = `
-                        <div class="blog-icon">
-                            <i class="${blog.icon}"></i>
-                        </div>
-                        <div class="blog-content">
-                            <h4>${blog.title}</h4>
-                            <p>${blog.description}</p>
-                        </div>
-                    `;
-                    blogContainer.appendChild(blogLink);
-                });
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                // Update URL hash
+                window.history.pushState(null, '', '#' + blogId);
+            }
+        }
+
+        function hideServiceBlog() {
+            // Hide all blog sections
+            const blogSections = document.querySelectorAll('.blog-post-section');
+            blogSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show all main sections
+            document.getElementById('home').style.display = 'block';
+            document.getElementById('about').style.display = 'block';
+            document.getElementById('services').style.display = 'block';
+            document.getElementById('portfolio').style.display = 'block';
+            document.getElementById('contact').style.display = 'block';
+            document.getElementById('gallery').style.display = 'block';
+            document.querySelector('.contact-cta-section').style.display = 'block';
+            
+            // Scroll to services section
+            document.getElementById('services').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Update URL
+            window.history.pushState(null, '', '#services');
+        }
+
+        // Handle browser back button
+        window.addEventListener('popstate', function(e) {
+            const hash = window.location.hash.substring(1);
+            if (hash && (hash.includes('-blog') || hash === 'services')) {
+                if (hash.includes('-blog')) {
+                    showServiceBlog(hash);
+                } else {
+                    hideServiceBlog();
+                }
+            }
+        });
+
+        // Service modal functions (keeping for compatibility)
+        function openServiceModal(serviceType) {
+            // Redirect to appropriate blog instead
+            const blogMapping = {
+                'web-development': 'web-development-blog',
+                'seo-optimization': 'seo-optimization-blog',
+                'pc-building': 'pc-building-blog'
+            };
+            
+            if (blogMapping[serviceType]) {
+                showServiceBlog(blogMapping[serviceType]);
             }
         }
 
         function closeServiceModal() {
-            const modal = document.getElementById('service-modal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            hideServiceBlog();
         }
 
         // Close modal when clicking outside

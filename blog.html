@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Gourav Choudhary | Web Development, SEO & PC Building</title>
+    <meta name="description" content="Read latest articles on web development, SEO optimization, and PC building by Gourav Choudhary. Expert insights and tutorials.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Root Variables */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --background-primary: #ffffff;
+            --background-secondary: #f9fafb;
+            --background-card: #ffffff;
+            --background-light: #f8fafc;
+            --background-accent: #eff6ff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        /* Dark theme */
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --background-primary: #111827;
+            --background-secondary: #1f2937;
+            --background-card: #1f2937;
+            --background-light: #374151;
+            --background-accent: #1e3a8a;
+            --border-color: #374151;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-primary);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: var(--background-accent);
+        }
+
+        .theme-switcher {
+            width: 50px;
+            height: 25px;
+            background: var(--border-color);
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-switcher::before {
+            content: '';
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 2px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .theme-switcher {
+            background: var(--primary-color);
+        }
+
+        [data-theme="dark"] .theme-switcher::before {
+            transform: translateY(-50%) translateX(25px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 80px 0;
+            background: var(--background-secondary);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-post {
+            background: var(--background-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .blog-category {
+            background: var(--background-accent);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-tag {
+            background: var(--background-light);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        /* Blog Post Detail */
+        .blog-detail {
+            background: var(--background-card);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            line-height: 1.8;
+        }
+
+        .blog-detail h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .blog-detail h3 {
+            color: var(--text-primary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .blog-detail p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-detail ul, .blog-detail ol {
+            margin: 1rem 0 1.5rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-detail li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: var(--background-accent);
+            color: var(--primary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            margin: 2rem 0 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-detail {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Gourav Choudhary</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-switcher" id="themeSwitcher"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>My Blog</h1>
+            <p>Expert insights on web development, SEO optimization, and PC building. Stay updated with the latest trends and best practices in technology.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-post fade-in" id="post-1">
+                    <div class="blog-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Web Development</span>
+                            <span><i class="fas fa-calendar"></i> January 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h2 class="blog-title">Complete Guide to Modern Web Development with React.js and Next.js in 2025</h2>
+                        <p class="blog-excerpt">Discover the latest trends, frameworks, and best practices for building modern, scalable websites. Learn about React.js, Next.js, and cutting-edge development techniques.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">React.js</span>
+                            <span class="blog-tag">Next.js</span>
+                            <span class="blog-tag">JavaScript</span>
+                            <span class="blog-tag">Frontend</span>
+                        </div>
+                        <a href="#post-1-detail" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-post fade-in" id="post-2">
+                    <div class="blog-image">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">SEO</span>
+                            <span><i class="fas fa-calendar"></i> January 10, 2025</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h2 class="blog-title">Advanced SEO Strategies That Actually Work: A Complete 2025 Guide</h2>
+                        <p class="blog-excerpt">Master advanced SEO techniques that drive real results. From technical SEO to content optimization, learn the strategies that top websites use to rank higher.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">SEO</span>
+                            <span class="blog-tag">Google</span>
+                            <span class="blog-tag">Rankings</span>
+                            <span class="blog-tag">Analytics</span>
+                        </div>
+                        <a href="#post-2-detail" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-post fade-in" id="post-3">
+                    <div class="blog-image">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">PC Building</span>
+                            <span><i class="fas fa-calendar"></i> January 5, 2025</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <h2 class="blog-title">Ultimate PC Building Guide 2025: From Budget Gaming to High-End Workstations</h2>
+                        <p class="blog-excerpt">Everything you need to know about building the perfect PC. Component selection, compatibility, assembly tips, and optimization for different use cases.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">PC Building</span>
+                            <span class="blog-tag">Gaming</span>
+                            <span class="blog-tag">Hardware</span>
+                            <span class="blog-tag">Components</span>
+                        </div>
+                        <a href="#post-3-detail" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Blog Post Details -->
+            <div class="blog-detail hidden" id="post-1-detail">
+                <h1>Complete Guide to Modern Web Development with React.js and Next.js in 2025</h1>
+                <div class="blog-meta" style="margin-bottom: 2rem;">
+                    <span class="blog-category">Web Development</span>
+                    <span><i class="fas fa-calendar"></i> January 15, 2025</span>
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                </div>
+
+                <p>Web development has evolved dramatically in 2025, with <span class="highlight">React.js and Next.js</span> leading the charge in creating fast, scalable, and user-friendly web applications. As a professional web developer, I've witnessed firsthand how these technologies are reshaping the digital landscape.</p>
+
+                <h2>Why React.js Dominates Modern Web Development</h2>
+                <p>React.js continues to be the go-to framework for building interactive user interfaces. Its component-based architecture allows developers to:</p>
+                <ul>
+                    <li>Create reusable UI components</li>
+                    <li>Manage application state efficiently</li>
+                    <li>Build scalable applications with ease</li>
+                    <li>Leverage a vast ecosystem of libraries and tools</li>
+                </ul>
+
+                <h2>Next.js: The React Framework for Production</h2>
+                <p>Next.js takes React development to the next level by providing:</p>
+                <ul>
+                    <li><strong>Server-Side Rendering (SSR):</strong> Improved SEO and faster initial page loads</li>
+                    <li><strong>Static Site Generation (SSG):</strong> Lightning-fast websites with pre-built pages</li>
+                    <li><strong>API Routes:</strong> Full-stack development within a single framework</li>
+                    <li><strong>Built-in Performance Optimizations:</strong> Image optimization, code splitting, and more</li>
+                </ul>
+
+                <h3>Best Practices for 2025</h3>
+                <p>When building modern web applications, I always recommend following these key practices:</p>
+                <ol>
+                    <li><strong>Performance First:</strong> Use Next.js Image component and implement lazy loading</li>
+                    <li><strong>SEO Optimization:</strong> Leverage SSR and proper meta tag management</li>
+                    <li><strong>Responsive Design:</strong> Mobile-first approach with Tailwind CSS or similar frameworks</li>
+                    <li><strong>Accessibility:</strong> Ensure your applications are usable by everyone</li>
+                    <li><strong>Testing:</strong> Implement comprehensive testing with Jest and React Testing Library</li>
+                </ol>
+
+                <h2>The Technology Stack I Recommend</h2>
+                <p>For modern web development projects, I typically use:</p>
+                <ul>
+                    <li><strong>Frontend:</strong> React.js with Next.js</li>
+                    <li><strong>Styling:</strong> Tailwind CSS or Styled Components</li>
+                    <li><strong>State Management:</strong> Zustand or Redux Toolkit</li>
+                    <li><strong>Database:</strong> PostgreSQL with Prisma ORM</li>
+                    <li><strong>Deployment:</strong> Vercel or Netlify for frontend, Railway for backend</li>
+                </ul>
+
+                <p>Whether you're building a simple portfolio website or a complex web application, understanding these modern technologies and best practices is crucial for success in 2025 and beyond.</p>
+            </div>
+
+            <div class="blog-detail hidden" id="post-2-detail">
+                <h1>Advanced SEO Strategies That Actually Work: A Complete 2025 Guide</h1>
+                <div class="blog-meta" style="margin-bottom: 2rem;">
+                    <span class="blog-category">SEO</span>
+                    <span><i class="fas fa-calendar"></i> January 10, 2025</span>
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                </div>
+
+                <p>Search Engine Optimization has become more sophisticated in 2025, with Google's algorithms focusing heavily on <span class="highlight">user experience, content quality, and technical performance</span>. As an SEO specialist, I've developed proven strategies that consistently deliver results.</p>
+
+                <h2>Core Web Vitals: The Foundation of Modern SEO</h2>
+                <p>Google's Core Web Vitals remain crucial ranking factors. Focus on:</p>
+                <ul>
+                    <li><strong>Largest Contentful Paint (LCP):</strong> Should be under 2.5 seconds</li>
+                    <li><strong>First Input Delay (FID):</strong> Should be under 100 milliseconds</li>
+                    <li><strong>Cumulative Layout Shift (CLS):</strong> Should be under 0.1</li>
+                </ul>
+
+                <h2>Technical SEO Essentials</h2>
+                <p>Technical SEO forms the backbone of your optimization efforts:</p>
+
+                <h3>1. Site Structure and Architecture</h3>
+                <ul>
+                    <li>Create a logical URL structure</li>
+                    <li>Implement proper internal linking</li>
+                    <li>Use XML sitemaps effectively</li>
+                    <li>Optimize robots.txt file</li>
+                </ul>
+
+                <h3>2. Page Speed Optimization</h3>
+                <ul>
+                    <li>Optimize images with WebP format</li>
+                    <li>Implement lazy loading</li>
+                    <li>Minify CSS, JavaScript, and HTML</li>
+                    <li>Use Content Delivery Networks (CDN)</li>
+                </ul>
+
+                <h2>Content Strategy That Drives Results</h2>
+                <p>Quality content remains king, but the approach has evolved:</p>
+
+                <h3>Keyword Research in 2025</h3>
+                <ol>
+                    <li><strong>Focus on Intent:</strong> Understand what users really want</li>
+                    <li><strong>Long-tail Keywords:</strong> Target specific, less competitive phrases</li>
+                    <li><strong>Semantic SEO:</strong> Use related terms and synonyms naturally</li>
+                    <li><strong>Featured Snippets:</strong> Structure content to win position zero</li>
+                </ol>
+
+                <h3>Content Optimization Best Practices</h3>
+                <ul>
+                    <li>Write comprehensive, in-depth content</li>
+                    <li>Use proper heading structure (H1, H2, H3)</li>
+                    <li>Include relevant internal and external links</li>
+                    <li>Optimize meta titles and descriptions</li>
+                    <li>Use schema markup for rich snippets</li>
+                </ul>
+
+                <h2>Local SEO for Business Growth</h2>
+                <p>For businesses serving local markets:</p>
+                <ul>
+                    <li>Optimize Google My Business profile</li>
+                    <li>Encourage and manage customer reviews</li>
+                    <li>Build local citations and directories</li>
+                    <li>Create location-specific content</li>
+                </ul>
+
+                <h2>Measuring SEO Success</h2>
+                <p>Track these key metrics to measure your SEO performance:</p>
+                <ul>
+                    <li>Organic traffic growth</li>
+                    <li>Keyword ranking improvements</li>
+                    <li>Click-through rates (CTR)</li>
+                    <li>Conversion rates from organic traffic</li>
+                    <li>Core Web Vitals scores</li>
+                </ul>
+
+                <p>Remember, SEO is a long-term strategy that requires patience, consistency, and continuous optimization. These strategies have helped my clients achieve significant improvements in their search rankings and organic traffic.</p>
+            </div>
+
+            <div class="blog-detail hidden" id="post-3-detail">
+                <h1>Ultimate PC Building Guide 2025: From Budget Gaming to High-End Workstations</h1>
+                <div class="blog-meta" style="margin-bottom: 2rem;">
+                    <span class="blog-category">PC Building</span>
+                    <span><i class="fas fa-calendar"></i> January 5, 2025</span>
+                    <span><i class="fas fa-user"></i> Gourav Choudhary</span>
+                </div>
+
+                <p>Building a custom PC in 2025 offers incredible performance and value, whether you're a gamer, content creator, or professional. As someone who has built hundreds of systems, I'll guide you through everything you need to know to build the perfect PC for your needs.</p>
+
+                <h2>Essential Components Overview</h2>
+                <p>Every PC build requires these core components:</p>
+
+                <h3>1. Processor (CPU)</h3>
+                <p>The brain of your system. Key considerations:</p>
+                <ul>
+                    <li><strong>AMD Ryzen 7000 Series:</strong> Excellent multi-core performance</li>
+                    <li><strong>Intel 13th Gen:</strong> Strong single-core performance for gaming</li>
+                    <li><strong>Core Count:</strong> 6-8 cores for gaming, 12+ for workstations</li>
+                    <li><strong>Socket Compatibility:</strong> Ensure motherboard compatibility</li>
+                </ul>
+
+                <h3>2. Graphics Card (GPU)</h3>
+                <p>Critical for gaming and visual work:</p>
+                <ul>
+                    <li><strong>NVIDIA RTX 4000 Series:</strong> Best for ray tracing and DLSS</li>
+                    <li><strong>AMD RX 7000 Series:</strong> Great price-to-performance ratio</li>
+                    <li><strong>VRAM:</strong> 8GB minimum for 1440p gaming</li>
+                    <li><strong>Power Requirements:</strong> Check PSU compatibility</li>
+                </ul>
+
+                <h2>Budget Gaming Build ($800-1200)</h2>
+                <p>Perfect for 1080p gaming at high settings:</p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Ryzen 5 7600X or Intel Core i5-13400F</li>
+                    <li><strong>GPU:</strong> RTX 4060 Ti or RX 7700 XT</li>
+                    <li><strong>RAM:</strong> 16GB DDR5-5600</li>
+                    <li><strong>Storage:</strong> 1TB NVMe SSD</li>
+                    <li><strong>Motherboard:</strong> B650 (AMD) or B760 (Intel)</li>
+                    <li><strong>PSU:</strong> 650W 80+ Gold modular</li>
+                </ul>
+
+                <h2>High-End Gaming Build ($2000-3000)</h2>
+                <p>For 1440p/4K gaming with maximum settings:</p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Ryzen 7 7800X3D or Intel Core i7-13700K</li>
+                    <li><strong>GPU:</strong> RTX 4080 or RTX 4090</li>
+                    <li><strong>RAM:</strong> 32GB DDR5-6000</li>
+                    <li><strong>Storage:</strong> 2TB NVMe SSD (PCIe 4.0)</li>
+                    <li><strong>Motherboard:</strong> X670E (AMD) or Z790 (Intel)</li>
+                    <li><strong>PSU:</strong> 850W-1000W 80+ Platinum modular</li>
+                </ul>
+
+                <h2>Workstation Build ($3000+)</h2>
+                <p>For content creation, 3D rendering, and professional work:</p>
+                <ul>
+                    <li><strong>CPU:</strong> AMD Ryzen 9 7950X or Intel Core i9-13900K</li>
+                    <li><strong>GPU:</strong> RTX 4090 or multiple RTX 4080s</li>
+                    <li><strong>RAM:</strong> 64GB DDR5-5600 (expandable to 128GB)</li>
+                    <li><strong>Storage:</strong> 4TB NVMe SSD + 2TB secondary</li>
+                    <li><strong>Motherboard:</strong> X670E Extreme or Z790 Extreme</li>
+                    <li><strong>PSU:</strong> 1200W+ 80+ Titanium modular</li>
+                </ul>
+
+                <h2>Step-by-Step Assembly Guide</h2>
+                <ol>
+                    <li><strong>Prepare Workspace:</strong> Anti-static wrist strap and clean area</li>
+                    <li><strong>Install CPU:</strong> Handle carefully, align properly</li>
+                    <li><strong>Install RAM:</strong> Check motherboard manual for proper slots</li>
+                    <li><strong>Mount Motherboard:</strong> Use standoffs, don't overtighten</li>
+                    <li><strong>Install Storage:</strong> M.2 SSDs before GPU installation</li>
+                    <li><strong>Install GPU:</strong> Secure with screws and power connectors</li>
+                    <li><strong>Connect Cables:</strong> Power, data, and front panel connectors</li>
+                    <li><strong>First Boot:</strong> Test outside case first</li>
+                </ol>
+
+                <h2>Performance Optimization Tips</h2>
+                <ul>
+                    <li><strong>Enable XMP/DOCP:</strong> Get rated RAM speeds</li>
+                    <li><strong>Update BIOS:</strong> Latest firmware for stability</li>
+                    <li><strong>Monitor Temperatures:</strong> Ensure proper cooling</li>
+                    <li><strong>Driver Updates:</strong> Keep GPU drivers current</li>
+                    <li><strong>Cable Management:</strong> Improves airflow and aesthetics</li>
+                </ul>
+
+                <h2>Common Mistakes to Avoid</h2>
+                <ul>
+                    <li>Incompatible components (CPU/motherboard socket mismatch)</li>
+                    <li>Insufficient power supply wattage</li>
+                    <li>Poor cable management affecting airflow</li>
+                    <li>Forgetting to remove plastic covers</li>
+                    <li>Not testing components before final assembly</li>
+                </ul>
+
+                <p>Building a PC is rewarding and more accessible than ever. Take your time, follow the manual, and don't hesitate to seek help when needed. The result will be a system perfectly tailored to your needs and budget.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Need Help with Your Project?</h2>
+            <p class="cta-description">Whether it's web development, SEO optimization, or PC building, I'm here to help you succeed.</p>
+            <div>
+                <a href="https://wa.me/918955622948?text=Hello%20Gourav!%20I%20read%20your%20blog%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Contact Me
+                </a>
+                <a href="index.html#portfolio" class="btn btn-outline">
+                    <i class="fas fa-folder"></i> View Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Theme switcher functionality
+        let currentTheme = 'light';
+
+        function initThemeSwitcher() {
+            const themeSwitcher = document.getElementById('themeSwitcher');
+            const body = document.body;
+
+            themeSwitcher.addEventListener('click', function() {
+                currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', currentTheme);
+            });
+        }
+
+        // Blog post detail functionality
+        function initBlogDetails() {
+            // Handle "Read More" clicks
+            document.querySelectorAll('.read-more').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Hide all blog posts
+                    document.querySelectorAll('.blog-post').forEach(post => {
+                        post.style.display = 'none';
+                    });
+                    
+                    // Show the specific blog detail
+                    const targetId = this.getAttribute('href');
+                    const targetDetail = document.querySelector(targetId);
+                    if (targetDetail) {
+                        targetDetail.classList.remove('hidden');
+                        targetDetail.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    
+                    // Add back button
+                    if (!document.querySelector('.back-button')) {
+                        const backButton = document.createElement('button');
+                        backButton.className = 'btn btn-outline back-button';
+                        backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Blog';
+                        backButton.style.marginBottom = '2rem';
+                        backButton.onclick = showAllPosts;
+                        targetDetail.insertBefore(backButton, targetDetail.firstChild);
+                    }
+                });
+            });
+        }
+
+        function showAllPosts() {
+            // Show all blog posts
+            document.querySelectorAll('.blog-post').forEach(post => {
+                post.style.display = 'block';
+            });
+            
+            // Hide all blog details
+            document.querySelectorAll('.blog-detail').forEach(detail => {
+                detail.classList.add('hidden');
+            });
+            
+            // Remove back buttons
+            document.querySelectorAll('.back-button').forEach(button => {
+                button.remove();
+            });
+            
+            // Scroll to blog section
+            document.querySelector('.blog-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Check for URL hash on page load
+        function checkUrlHash() {
+            const hash = window.location.hash;
+            if (hash && document.querySelector(hash + '-detail')) {
+                setTimeout(() => {
+                    const readMoreLink = document.querySelector(`a[href="${hash}-detail"]`);
+                    if (readMoreLink) {
+                        readMoreLink.click();
+                    }
+                }, 100);
+            }
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeSwitcher();
+            initBlogDetails();
+            initScrollAnimations();
+            checkUrlHash();
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            checkUrlHash();
+        });
+    </script>
+</body>
+</html>

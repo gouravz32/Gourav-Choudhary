@@ -26,6 +26,11 @@
     <meta name="twitter:description" content="Professional web development and PC building services from Rajasthan.">
     <meta name="twitter:image" content="img/gourav choudhary.jpeg">
     
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#2563eb">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,7 +41,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -58,7 +63,7 @@
         "telephone": "+91-8955622948",
         "email": "gouravchoudharyoffical@gmail.com",
         "sameAs": [
-            "https://instagram.com/itz_gourav_choudhary65"
+            "https://www.instagram.com/itz_gourav_choudhary09"
         ],
         "knowsAbout": ["Web Development", "SEO", "PC Building", "Digital Marketing", "React.js", "Next.js"]
     }
@@ -72,7 +77,7 @@
         }
 
         body {
-            font-family: 'Poppins', 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--background-light);
@@ -945,6 +950,7 @@
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .service-card:hover {
@@ -958,10 +964,21 @@
             color: var(--primary-color);
             margin-bottom: 2rem;
             transition: all 0.3s ease;
+            background: var(--background-accent);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            border: 3px solid rgba(37, 99, 235, 0.2);
         }
 
         .service-card:hover .service-icon {
             transform: scale(1.1) rotateY(180deg);
+            background: var(--primary-color);
+            color: white;
         }
 
         .service-card h3 {
@@ -982,13 +999,412 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            cursor: pointer;
         }
 
         .service-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Service Detail Modal */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .service-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--background-light);
+            max-width: 700px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--background-card);
+            color: var(--primary-color);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .modal-features li {
+            padding: 0.8rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .modal-features li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .modal-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .modal-blog-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .modal-blog-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .blog-links {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .blog-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .blog-icon {
+            background: var(--background-accent);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .blog-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .blog-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-category {
+            background: var(--background-accent);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .portfolio-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--background-card);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .portfolio-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .portfolio-link:hover {
             color: var(--secondary-color);
         }
 
-        /* Personal Gallery - COMPLETELY NEW DESIGN */
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--background-light);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--background-card);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            background: var(--background-accent);
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-form {
+            background: var(--background-light);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--background-card);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Personal Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1014,7 +1430,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Center the last gallery item */
         .gallery-item-center {
             grid-column: 1 / -1;
             max-width: 300px;
@@ -1071,7 +1486,7 @@
             color: white;
         }
 
-        /* Contact CTA Section - COMPLETELY NEW */
+        /* Contact CTA Section */
         .contact-cta-section {
             background: var(--gradient-primary);
             padding: 80px 0;
@@ -1202,7 +1617,7 @@
             transform: translateY(-2px);
         }
 
-        .contact-info p {
+        .footer-contact-info p {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -1210,7 +1625,7 @@
             color: var(--text-secondary);
         }
 
-        .contact-info i {
+        .footer-contact-info i {
             color: var(--primary-color);
             width: 16px;
         }
@@ -1284,6 +1699,11 @@
             .nav-menu a {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
@@ -1407,6 +1827,24 @@
             [data-theme="dark"] .theme-switcher .toggle-ball {
                 transform: translateY(-50%) translateX(30px);
             }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 2rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1468,6 +1906,27 @@
             .nav-menu li {
                 margin: 1rem 0;
                 width: 95%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 1.5rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
             }
         }
 
@@ -1537,6 +1996,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -1622,9 +2082,6 @@
                                 <span class="stat-label">Client Satisfaction</span>
                             </div>
                         </div>
-                        <div class="text-center" style="margin-top: 2rem;">
-                            <a href="#contact" class="btn btn-outline">Learn More About Me</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1639,27 +2096,282 @@
                 <p class="section-subtitle">Comprehensive digital solutions for your business</p>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-service="web-development">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Web Development</h3>
                     <p>Custom websites built with modern technologies like React.js, Next.js, and Node.js. Responsive, fast, and SEO-optimized.</p>
-                    <a href="#contact" class="service-link">Get Started</a>
+                    <button class="service-link" onclick="openServiceModal('web-development')">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </button>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-service="seo-optimization">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>SEO Optimization</h3>
                     <p>Boost your online visibility with comprehensive SEO strategies, keyword research, and performance analytics.</p>
-                    <a href="#contact" class="service-link">Boost Rankings</a>
+                    <button class="service-link" onclick="openServiceModal('seo-optimization')">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </button>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-service="pc-building">
                     <div class="service-icon"><i class="fas fa-desktop"></i></div>
                     <h3>PC Building</h3>
                     <p>Custom high-performance PC builds for gaming, workstations, and business needs. Quality components, expert assembly.</p>
-                    <a href="#contact" class="service-link">Build PC</a>
+                    <button class="service-link" onclick="openServiceModal('pc-building')">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">My Portfolio</h2>
+                <p class="section-subtitle">Recent projects showcasing my skills and expertise</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Web Development</span>
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="portfolio-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">SEO</span>
+                        <h3>SEO Campaign Results</h3>
+                        <p>Increased organic traffic by 300% for local business through comprehensive SEO strategy and optimization.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Technical SEO</span>
+                            <span class="tech-tag">Content Strategy</span>
+                            <span class="tech-tag">Link Building</span>
+                            <span class="tech-tag">Analytics</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-chart-bar"></i> View Results</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">PC Building</span>
+                        <h3>Gaming Workstation Build</h3>
+                        <p>High-performance gaming and content creation workstation with custom cooling and RGB lighting setup.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">RTX 4080</span>
+                            <span class="tech-tag">Ryzen 9</span>
+                            <span class="tech-tag">32GB DDR5</span>
+                            <span class="tech-tag">Custom Loop</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-images"></i> Gallery</a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-tools"></i> Specs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Web Development</span>
+                        <h3>Business Portfolio Website</h3>
+                        <p>Responsive portfolio website with modern design, smooth animations, and optimized performance.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-code"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">SEO</span>
+                        <h3>Local SEO Success</h3>
+                        <p>Helped local restaurant rank #1 for competitive keywords and increase foot traffic by 150%.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Local SEO</span>
+                            <span class="tech-tag">Google My Business</span>
+                            <span class="tech-tag">Schema Markup</span>
+                            <span class="tech-tag">Citations</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-trophy"></i> Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">PC Building</span>
+                        <h3>Budget Gaming Setup</h3>
+                        <p>Cost-effective gaming PC build delivering excellent 1080p performance within tight budget constraints.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">RTX 3060</span>
+                            <span class="tech-tag">Ryzen 5</span>
+                            <span class="tech-tag">16GB DDR4</span>
+                            <span class="tech-tag">SSD Storage</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-gamepad"></i> Benchmarks</a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-dollar-sign"></i> Pricing</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to start your project? Let's discuss how I can help you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+918955622948">+91 8955622948</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:gouravchoudharyoffical@gmail.com">gouravchoudharyoffical@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>New Gharsana, Rajasthan, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/918955622948" target="_blank">Message on WhatsApp</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 12px; background: var(--background-card); color: var(--text-primary); font-family: 'Poppins', sans-serif;">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="seo-optimization">SEO Optimization</option>
+                                <option value="pc-building">PC Building</option>
+                                <option value="consultation">Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Modals -->
+    <div id="service-modal" class="service-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeServiceModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title"></h2>
+                <p class="modal-description" id="modal-description"></p>
+            </div>
+            <ul class="modal-features" id="modal-features"></ul>
+            
+            <!-- Blog Section in Modal -->
+            <div class="modal-blog-section">
+                <h3 class="modal-blog-title">📚 Related Blog Posts</h3>
+                <div class="blog-links" id="modal-blogs"></div>
+            </div>
+            
+            <div class="modal-cta">
+                <a href="https://wa.me/918955622948" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Get Quote
+                </a>
+                <a href="#contact" class="btn btn-outline" onclick="closeServiceModal()">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Personal Gallery -->
     <section id="gallery" class="section">
@@ -1734,7 +2446,7 @@
         </div>
     </section>
 
-    <!-- Contact CTA - COMPLETELY REWRITTEN -->
+    <!-- Contact CTA -->
     <section class="contact-cta-section">
         <div class="container">
             <div class="cta-wrapper">
@@ -1763,7 +2475,7 @@
                         <a href="https://www.facebook.com/gourav.choudhary.795703" target="_blank" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://instagram.com/itz_gourav_choudhary65" target="_blank" title="Instagram">
+                        <a href="https://www.instagram.com/itz_gourav_choudhary09" target="_blank" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://wa.me/918955622948" target="_blank" title="WhatsApp">
@@ -1781,6 +2493,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1795,7 +2508,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact Info</h4>
-                    <div class="contact-info">
+                    <div class="footer-contact-info">
                         <p><i class="fas fa-phone"></i> +91 8955622948</p>
                         <p><i class="fas fa-envelope"></i> gouravchoudharyoffical@gmail.com</p>
                         <p><i class="fas fa-map-marker-alt"></i> New Gharsana, Rajasthan</p>
@@ -1811,6 +2524,176 @@
     <script>
         // In-memory theme storage (no localStorage)
         let currentTheme = 'light';
+
+        // Updated Blog data for each service with correct links to blog.html
+        const blogData = {
+            'web-development': [
+                {
+                    title: "Complete Guide to Modern Web Development with React.js and Next.js in 2025",
+                    description: "Latest trends, frameworks, and best practices for building modern websites",
+                    url: "blog.html#post-1",
+                    icon: "fas fa-code"
+                },
+                {
+                    title: "Advanced SEO Strategies That Actually Work",
+                    description: "Comprehensive SEO guide for boosting your website rankings",
+                    url: "blog.html#post-2",
+                    icon: "fas fa-search"
+                },
+                {
+                    title: "Ultimate PC Building Guide 2025",
+                    description: "Complete guide to building high-performance computers",
+                    url: "blog.html#post-3",
+                    icon: "fas fa-desktop"
+                }
+            ],
+            'seo-optimization': [
+                {
+                    title: "Advanced SEO Strategies That Actually Work: A Complete 2025 Guide",
+                    description: "Master advanced SEO techniques and boost your rankings with proven strategies",
+                    url: "blog.html#post-2",
+                    icon: "fas fa-search"
+                },
+                {
+                    title: "Complete Guide to Modern Web Development with React.js and Next.js",
+                    description: "Build SEO-friendly websites with modern web development practices",
+                    url: "blog.html#post-1",
+                    icon: "fas fa-code"
+                },
+                {
+                    title: "Ultimate PC Building Guide 2025",
+                    description: "Everything about building high-performance computers",
+                    url: "blog.html#post-3",
+                    icon: "fas fa-desktop"
+                }
+            ],
+            'pc-building': [
+                {
+                    title: "Ultimate PC Building Guide 2025: From Budget Gaming to High-End Workstations",
+                    description: "Complete guide to building the perfect PC for any budget and requirement",
+                    url: "blog.html#post-3",
+                    icon: "fas fa-desktop"
+                },
+                {
+                    title: "Complete Guide to Modern Web Development",
+                    description: "Build powerful websites with modern technologies",
+                    url: "blog.html#post-1",
+                    icon: "fas fa-code"
+                },
+                {
+                    title: "Advanced SEO Strategies That Actually Work",
+                    description: "Boost your online presence with proven SEO techniques",
+                    url: "blog.html#post-2",
+                    icon: "fas fa-search"
+                }
+            ]
+        };
+
+        // Service data for modals
+        const serviceData = {
+            'web-development': {
+                title: 'Web Development',
+                description: 'Professional web development services using modern technologies and best practices.',
+                features: [
+                    'Custom Website Development with React.js & Next.js',
+                    'Responsive Design for All Devices',
+                    'E-commerce Solutions with Payment Integration',
+                    'Content Management Systems (CMS)',
+                    'Progressive Web Applications (PWA)',
+                    'API Development and Integration',
+                    'Performance Optimization & SEO',
+                    'Cross-browser Compatibility',
+                    'Ongoing Maintenance & Support'
+                ]
+            },
+            'seo-optimization': {
+                title: 'SEO Optimization',
+                description: 'Comprehensive SEO strategies to boost your online visibility and drive organic traffic.',
+                features: [
+                    'Technical SEO Audit & Optimization',
+                    'Keyword Research & Analysis',
+                    'On-page SEO Optimization',
+                    'Content Strategy Development',
+                    'Link Building Campaigns',
+                    'Local SEO for Businesses',
+                    'Google Analytics Setup & Monitoring',
+                    'Core Web Vitals Optimization',
+                    'Monthly SEO Reports & Insights'
+                ]
+            },
+            'pc-building': {
+                title: 'PC Building',
+                description: 'Custom high-performance computer systems built with quality components and expert assembly.',
+                features: [
+                    'Gaming PC Builds (All Budget Ranges)',
+                    'Workstation PCs for Professionals',
+                    'Component Selection & Compatibility Check',
+                    'Custom Cooling Solutions',
+                    'Cable Management & RGB Setup',
+                    'Performance Testing & Optimization',
+                    'Hardware Upgrades & Repairs',
+                    'System Troubleshooting',
+                    'Warranty Support & Maintenance'
+                ]
+            }
+        };
+
+        // Service modal functions
+        function openServiceModal(serviceType) {
+            const modal = document.getElementById('service-modal');
+            const data = serviceData[serviceType];
+            const blogs = blogData[serviceType];
+            
+            if (data) {
+                document.getElementById('modal-title').textContent = data.title;
+                document.getElementById('modal-description').textContent = data.description;
+                
+                const featuresList = document.getElementById('modal-features');
+                featuresList.innerHTML = '';
+                
+                data.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+                
+                // Add blog links
+                const blogContainer = document.getElementById('modal-blogs');
+                blogContainer.innerHTML = '';
+                
+                blogs.forEach(blog => {
+                    const blogLink = document.createElement('a');
+                    blogLink.href = blog.url;
+                    blogLink.className = 'blog-link';
+                    blogLink.innerHTML = `
+                        <div class="blog-icon">
+                            <i class="${blog.icon}"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h4>${blog.title}</h4>
+                            <p>${blog.description}</p>
+                        </div>
+                    `;
+                    blogContainer.appendChild(blogLink);
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('service-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServiceModal();
+            }
+        });
 
         // Theme switcher functionality
         function initThemeSwitcher() {
@@ -1836,18 +2719,24 @@
 
         // Enhanced particle system
         function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            particlesContainer.innerHTML = ''; // Clear existing particles
-            const particleCount = window.innerWidth < 768 ? 15 : 25;
+            try {
+                const particlesContainer = document.getElementById('particles');
+                if (!particlesContainer) return;
+                
+                particlesContainer.innerHTML = ''; // Clear existing particles
+                const particleCount = window.innerWidth < 768 ? 15 : 25;
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.width = particle.style.height = Math.random() * 8 + 3 + 'px';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = Math.random() * 15 + 10 + 's';
-                particlesContainer.appendChild(particle);
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.width = particle.style.height = Math.random() * 8 + 3 + 'px';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            } catch (error) {
+                console.error('Error creating particles:', error);
             }
         }
 
@@ -1863,29 +2752,35 @@
         let isDeleting = false;
 
         function typeWriter() {
-            const typingElement = document.getElementById('typingText');
-            const currentText = texts[textIndex];
+            try {
+                const typingElement = document.getElementById('typingText');
+                if (!typingElement) return;
+                
+                const currentText = texts[textIndex];
 
-            if (isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
+                if (isDeleting) {
+                    typingElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    typeSpeed = 2500;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(typeWriter, typeSpeed);
+            } catch (error) {
+                console.error('Error in typeWriter:', error);
             }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2500;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeWriter, typeSpeed);
         }
 
         // Enhanced mobile menu toggle
@@ -1893,6 +2788,8 @@
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
             const body = document.body;
+
+            if (!menuToggle || !navMenu) return;
 
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -2000,6 +2897,8 @@
 
             function updateNavbar() {
                 const navbar = document.getElementById('navbar');
+                if (!navbar) return;
+                
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
                 if (scrollTop > 100) {
@@ -2033,6 +2932,34 @@
             });
         }
 
+        // Contact form handling
+        function initContactForm() {
+            const contactForm = document.querySelector('#contact form');
+            if (!contactForm) return;
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const service = formData.get('service');
+                const message = formData.get('message');
+                
+                // Create WhatsApp message
+                const whatsappMessage = `Hello Gourav! I'm ${name} (${email}). I'm interested in ${service}. ${message}`;
+                const whatsappURL = `https://wa.me/918955622948?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                // Open WhatsApp
+                window.open(whatsappURL, '_blank');
+                
+                // Reset form
+                contactForm.reset();
+                alert('Thank you! Redirecting to WhatsApp...');
+            });
+        }
+
         // Debounced resize handler for performance
         let resizeTimeout;
         window.addEventListener('resize', function() {
@@ -2044,22 +2971,27 @@
 
         // Initialize everything when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            typeWriter();
-            initThemeSwitcher();
-            initMobileMenu();
-            initNavigationHighlighting();
-            initScrollAnimations();
-            initNavbarScrollEffect();
-            initCardEffects();
-            
-            // Add loading class to body initially
-            document.body.classList.add('loading');
-            
-            // Remove loading class after everything is loaded
-            window.addEventListener('load', function() {
-                document.body.classList.remove('loading');
-            });
+            try {
+                createParticles();
+                typeWriter();
+                initThemeSwitcher();
+                initMobileMenu();
+                initNavigationHighlighting();
+                initScrollAnimations();
+                initNavbarScrollEffect();
+                initCardEffects();
+                initContactForm();
+                
+                // Add loading class to body initially
+                document.body.classList.add('loading');
+                
+                // Remove loading class after everything is loaded
+                window.addEventListener('load', function() {
+                    document.body.classList.remove('loading');
+                });
+            } catch (error) {
+                console.error('Error initializing website:', error);
+            }
         });
 
         // Enhanced footer hover effects with brand colors
@@ -2076,4 +3008,22 @@
                 });
             });
         });
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('Website error:', e.error);
+        });
+
+        // Enhanced performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const perfData = performance.timing;
+                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                    console.log('Page load time:', pageLoadTime + 'ms');
+                }, 0);
+            });
+        }
     </script>
+</body>
+</html>
